@@ -113,12 +113,12 @@ while(answer.upper() == 'Y'):
 	def lose(): # function for when you lose
 		player.chips-=bet # you lose however much you bet
 		print """
-	 __   _____  _   _   _     ___  ____  _____     _______           _______
-	 \ \ / / _ \| | | | | |   / _ \/ ___|| ____|   / /_   _|         |_   _\ \
-	  \ V / | | | | | | | |  | | | \___ \|  _|    | |  | |             | |  | |
-	   | || |_| | |_| | | |__| |_| |___) | |___   | |  | |             | |  | |
-	   |_| \___/ \___/  |_____\___/|____/|_____|  | |  |_|    _____    |_|  | |
-	                                               \_\       |_____|       /_/
+	Y)    yy  O)oooo  U)    uu    L)      O)oooo   S)ss   E)eee
+	 Y)  yy  O)    oo U)    uu    L)     O)    oo S)   s  E)
+	  Y)yy   O)    oo U)    uu    L)     O)    oo   ss    E)eee
+	   Y)    O)    oo U)    uu    L)     O)    oo     ss  E)
+	   Y)    O)    oo U)    uu    L)     O)    oo s    S) E)
+	   Y)     O)oooo   U)uuuu     L)llll  O)oooo   S)S)   E)eee
 			"""
 		print "You lost \033[1;31m{}\033[1;m chips. You currently have \033[1;31m{}\033[1;m\n".format(bet, player.chips)
 		if player.chips<=0: # if loser run out of chips
