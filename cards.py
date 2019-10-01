@@ -13,17 +13,17 @@ class Deck(object): # deck class
 	def __init__(self):
 		self.cards = [] # empty list for deck of cards
 
-	def create(self): # creates all the cards 
+	def create(self): # creates all the cards
 		suits = ["Hearts", "Clubs", "Diamonds", "Spades"]
 		numbers = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A']
-		for suit in suits: 
-			for number in numbers: 
+		for suit in suits:
+			for number in numbers:
 				values = None
-				if number == "K" or number == "J" or number  == "Q": 
+				if number == "K" or number == "J" or number  == "Q":
 					values = 10
 				elif number == 'A':
 					values = 11 # default value of Ace is 11
-				else: 
+				else:
 					values = number
 				self.cards.append(Cards(suit, number, values))
 	def shuffle(self): # shuffles cards
@@ -41,9 +41,9 @@ class Deck(object): # deck class
 	def deal(self, player, dealer): # deals cards to player and dealer
 		for i in range(0,4):
 			hand = self.cards.pop(0)
-			if i<2: 
+			if i<2:
 				player.hand.append(hand)
-			else: 
+			else:
 				dealer.hand.append(hand)
 		player.add()
 		dealer.add()
@@ -53,10 +53,10 @@ class Deck(object): # deck class
 		card_list = []
 		for x in player.hand:
 			symbol = suit_symbol[x.suits]
-			
-			if x.numbers == 10: 
+
+			if x.numbers == 10:
 				card_number = 10
-			else: 
+			else:
 				card_number = str(x.numbers)+" "
 			card_list.append(card_number)
 			card_list.append(symbol)
@@ -93,9 +93,9 @@ class Player(object):
 		# to print out ascii pic of card
 		symbol = suit_symbol[hand1.suits]
 		card_number=""
-		if hand1.numbers == 10: 
+		if hand1.numbers == 10:
 			card_number = 10
-		else: 
+		else:
 			card_number = str(hand1.numbers)+" "
 		print """
 		 ____________
@@ -113,16 +113,16 @@ class Player(object):
 
 		""".format(card_number,symbol.encode("utf-8")+' ',card_number)
 		# print out what player drew
-		print "\n{} drew \033[1;36m{} of {}\033[1;m".format(self.name, hand1.numbers, hand1.suits)  
+		print "\n{} drew \033[1;36m{} of {}\033[1;m".format(self.name, hand1.numbers, hand1.suits)
 		# to check if Ace is 11 or 1
-		for card in self.hand: # goes through all the cards in your hand 
+		for card in self.hand: # goes through all the cards in your hand
 			if card.numbers == "A" and self.sum>21: # check if the card you have is an Ace, and if you sum is over 21
 				card.values = 1
 				self.add()
 				print "Whoops almost busted! We changed your Ace to 1."
 
 	def stay(self):
-		pass 
+		pass
 
 	def add(self):
 		self.sum = 0
@@ -139,19 +139,7 @@ class Dealer(Player): # inherits from Player, but hit method is altered
 		self.add() # add() returns the sum, and passed to variable 'hand_sum'
 		print
 		# to check if Ace is 11 or 1
-		for card in self.hand: # goes through all the cards in your hand 
+		for card in self.hand: # goes through all the cards in your hand
 			if card.numbers == "A" and self.sum>21: # check if the card you have is an Ace, and if you sum is over 21
 				card.values = 1
 				self.add()
-
-
-
-myDeck = Deck()
-myDeck.create()
-player1 = Player('marina')
-player2 = Player('bob')
-myDeck.deal(player1, player2)
-print player1.add()
-
-		
-
