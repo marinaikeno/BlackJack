@@ -22,12 +22,6 @@ print blackjack
 print symbols
 
 name = raw_input("What is your name? ") # Asks user what their name is
-# chip = input("How many starter chips do you want? ") # ask user how many starter chips they want
-# while type(chip)!= int:  # if whatever they typed in is not an integer, it makes the user type again
-# 	chip = input("Please put an integer. Dummy. ")
-# bet = input("How much do you want to wager each time? (Please type an integer) ")
-# while type(bet) != int:
-# 	bet = input("Please put an integer. Dummy. ")
 
 myDeck = Deck() # create Deck object
 player = Player(name) # create Player object
